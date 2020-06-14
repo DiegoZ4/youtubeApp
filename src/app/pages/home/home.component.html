@@ -2,3 +2,32 @@
 
 <hr>
 
+<div class="card-columns">
+
+    <div class="card animated fadeIn" *ngFor="let video of video">
+      <img class="card-img-top" [src]="video.thumbnails.high.url" alt="{{video.title}}">
+      <div class="card-body">
+        <h5 class="card-title">{{ video.title }}</h5>
+        <p class="card-text">
+            <strong>Autor: </strong> {{ video.channelTitle }}
+        </p>
+        <p class="card-text">
+            <strong>Publicado: </strong> {{ video.publishedAt | date }}
+        </p>
+
+        <button class="btn btn-outline-primary btn-block"
+                (click)="mostrarVideo( video )">
+            Ver Video
+        </button>
+      </div>
+    </div>
+</div>
+
+<div class="row mt-5 mb-5 text-center">
+    <div class="col">
+        <button class="btn btn-primary btn-lg"
+                (click)="cargarVideos()">
+            Siguiente pagina
+        </button>
+    </div>
+</div>
